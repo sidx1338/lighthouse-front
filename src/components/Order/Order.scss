@@ -1,0 +1,40 @@
+.order-item {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.order-wrap {
+  padding-top: 20px;
+  margin-right: 20px;
+}
+
+.cross-icon {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-top: 5px;
+  padding-right: 5px;
+
+}
+
+.order-item-img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+.order-item-title {
+  margin-bottom: 20px;
+}
+
+.order-item-price {
+  font-weight: bold;
+}
+
+.trash-icon {
+  position: relative;
+  float: right;
+  cursor: pointer;
+  top: -55px;
+}

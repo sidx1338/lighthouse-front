@@ -1,0 +1,236 @@
+$mainColor: #ffffff;
+$bgColor: var(--orange);
+$aquaColor: var(--white);
+
+.form-wrapper {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__body {
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  // .form__text
+
+  &__text {
+    color: #ffffff;
+    text-align: left;
+    font-size: clamp(14px, 3vw, 18px);
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  // .form__input
+
+  &__input {
+    font-size: clamp(14px, 3vw, 16px);
+    color: var(--white);
+    font-weight: 700;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid var(--orange);
+    padding: 15px;
+    &:focus {
+      border: 1px solid var(--white);
+    }
+  }
+
+  // .form__dropdown
+
+  &__dropdown {
+    position: relative;
+    text-align: left;
+    min-width: 45px;
+    border: 1px solid var(--white);
+    border-radius: 8px;
+    transition: background-color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #ffffff;
+        color: $bgColor;
+      }
+    }
+  }
+
+  // .form__select
+
+  &__select {
+    padding: 15px 15px 15px 15px;
+    //color: #9f5626;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  // .form__selected
+
+  &__selected {
+    &_big {
+      font-size: 16px;
+    }
+  }
+
+  // .form__caret
+
+  &__caret {
+    transition: 0.3s;
+    &.caret-rotate {
+      transform: rotate(180deg);
+    }
+  }
+
+  // .form__list
+
+  &__list {
+    padding: 10px 5px;
+    background: $bgColor;
+    border: 15px solid $bgColor;
+    box-shadow: 0 0 0.8em 1em rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    color: $mainColor;
+    position: absolute;
+    top: 55px;
+    left: 43%;
+    width: 101%;
+    transform: translateX(-43%);
+    // opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 1;
+    &.menu-open {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  // .form__item
+
+  &__item {
+    padding: 3px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+    span {
+      font-weight: 700;
+      font-size: 20px;
+    }
+    &.active {
+      background: #202020;
+      color: #9f5626;
+      font-size: 18px;
+      padding: 10px;
+      @media (any-hover: hover) {
+        &:hover {
+          background: $mainColor;
+          color: $bgColor;
+        }
+      }
+    }
+  }
+
+  // .form__btn
+
+  &__btn {
+    width: 100%;
+    color: var(--white);
+    background-color: var(--orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    //border: 1px solid $aquaColor;
+    padding: 20px;
+    border-radius: 10px;
+    transition:
+            background-color 0.3s ease 0s,
+            color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--dark-orange);
+       // border: 1px solid var(--orange);
+        color: #000;
+      }
+    }
+  }
+
+  // .form__clue
+
+  &__clue {
+    font-size: 14px;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+    span {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  // .form__results
+  &__results {
+    font-weight: 700;
+    text-align: left;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  // .form__total-value
+
+  &__total-value {
+    cursor: pointer;
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    &::before,
+    &::after {
+      content: "";
+      right: -35px;
+      top: 50%;
+      // transform: translateY(-50%);
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background: var(--white);
+    }
+    &::before {
+      content: "";
+      transform: rotate(45deg);
+    }
+    &::after {
+      content: "";
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.form__send-result {
+ // color: #f00000;
+}
+
+.form-wrapper__textarea {
+  font-size: 16px;
+  color: $mainColor;
+  font-weight: 700;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid var(--orange);
+  padding: 15px;
+  resize: vertical;
+  &:focus {
+    border: 1px solid var(--white);
+  }
+}
+// .form__body

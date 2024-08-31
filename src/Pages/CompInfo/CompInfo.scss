@@ -1,0 +1,42 @@
+.compinfo-background {
+ // background-image: url("../../assets/backgrounds/compinfo-background.jpg");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.compinfo-wrap {
+  //display: flex;
+  //flex-direction: column;
+//  display: flex;
+//flex-wrap: wrap;
+}
+
+//.compinfo__container {
+//  height: 100vh;
+//}
+
+.compinfo-title {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  color: var(--white);
+  text-align: center;
+  font-size: clamp(24px, 5vw, 30px);
+  font-weight: bold;
+}
+
+.compinfo-text {
+  margin-bottom: 30px;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.comp-images {
+  background-color: #ffffff;
+  position: relative;
+  padding-top: 87vh;
+ // height: 100vh;
+}
+

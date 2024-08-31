@@ -1,0 +1,235 @@
+.contacts {
+  background-image: url("../../assets/backgrounds/background-image13.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  //filter: brightness(65%);
+}
+
+.contacts__container {
+  padding-bottom: 60px;
+}
+
+.contacts-title {
+  position: relative;
+  z-index: 10;
+  margin-top: 40px;
+  color: var(--white);
+  text-align: center;
+  font-weight: bold;
+  font-size: clamp(24px, 5vw, 30px);
+}
+
+.contacts-map-wrap {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1325px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.contact-all-wrap {
+  max-width: 1000px;
+  z-index: 10;
+  position: relative;
+  margin-top: 40px;
+  margin-right: 40px;
+  background: rgba(255, 255, 255, 0.67);
+  // box-shadow: 0 1px 10px 0 var(--white);
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  border-radius: 30px 30px 0 30px;
+  padding: 30px;
+  @media (max-width: 1200px) {
+    margin-right: 0;
+  }
+}
+
+.contacts-placemark {
+  opacity: 70%;
+  width: 13px;
+  padding-bottom: 5px;
+}
+
+.contacts-address {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  flex-wrap: nowrap;
+  @media (max-width: 1325px) {
+    //justify-content: center;
+  }
+}
+
+.contacts-wrap {
+  padding-left: 25px;
+  @media (max-width: 1325px) {
+   // padding-left: 0;
+  }
+}
+
+.contacts-address-text {
+  color: var(--dark_text);
+  //color: var(--white);
+  margin-left: 5px;
+  font-size: clamp(16px, 3vw, 20px);
+  @media (max-width: 1325px) {
+    //text-align: center;
+  }
+}
+
+.contacts-phone-icon {
+  width: 17px;
+}
+
+.contacts-number {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  @media (max-width: 1325px) {
+   // justify-content: center;
+  }
+}
+
+.contacts-phone-number {
+  margin-left: 5px;
+  color: var(--dark_text);
+  font-weight: 500;
+  font-size: clamp(14px, 3vw, 16px)
+  //color: var(--white);
+}
+
+.contacts-schedule-icon {
+  width: 27px;
+}
+
+.contacts-schedule {
+  margin-left: -5px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  @media (max-width: 1325px) {
+   // justify-content: center;
+    font-size: clamp(14px, 3vw, 16px)
+  }
+}
+
+.contacts-schedule-last {
+  margin-left: -5px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  @media (max-width: 1325px) {
+  //  justify-content: center;
+    font-size: clamp(14px, 3vw, 16px)
+  }
+}
+
+.schedule-text {
+  margin-left: 5px;
+  color: var(--dark_text);
+  //color: var(--white);
+  font-weight: 600;
+}
+
+.schedule-text span {
+  font-weight: 500;
+  color: var(--dark_text);
+}
+
+.map {
+  //margin-top: 30px;
+}
+
+.map-socialmedia {
+  margin-top: 40px;
+  max-width: 1400px;
+  // width: 100%;
+  overflow: hidden;
+}
+
+.contacts-socialmedia-wrap {
+  z-index: 10;
+  position: relative;
+  background: rgba(255, 255, 255, 0.67);
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  margin-top: 20px;
+  border-radius: 0 30px 30px 30px;
+  display: flex;
+  gap: 15px 30px;
+  justify-content: space-evenly;
+  align-items: baseline;
+  padding: 15px;
+  @media (max-width: 760px) {
+    gap: 15px 10px;
+  }
+  @media (max-width: 380px) {
+    flex-wrap: wrap;
+  }
+}
+
+.contacts-socialmedia {
+  display: flex ;
+  flex-direction: column;
+  row-gap: 15px;
+  align-items: center;
+  @media (max-width: 760px) {
+    row-gap: 10px;
+  }
+}
+
+.contacts-socialmedia-text {
+  font-size: 20px;
+  color: black;
+  @media (max-width: 760px) {
+    font-size: clamp(10px, 2vw, 20px)
+  }
+}
+
+.email-icon {
+  width: 40px;
+  height: 40px;
+  @media (max-width: 760px) {
+    width: clamp(30px, 5vw, 40px)
+  }
+}
+
+.instagram-icon {
+  width: 40px;
+  height: 40px;
+  @media (max-width: 760px) {
+    width: clamp(30px, 5vw, 40px)
+  }
+}
+
+.vkontakte-icon {
+  width: 40px;
+  height: 40px;
+  @media (max-width: 760px) {
+    width: clamp(30px, 5vw, 40px)
+  }
+}
+
+.backconnection {
+  background-color: black;
+  padding: 15px;
+}
+
+.backconnection-title {
+  position: relative;
+  z-index: 10;
+  padding-top: 40px;
+  margin-bottom: 30px;
+  color: var(--white);
+  text-align: center;
+  font-weight: bold;
+  font-size: clamp(24px, 5vw, 30px);
+}
+
+.backconnection-form {
+  display: flex;
+  justify-content: center;
+}

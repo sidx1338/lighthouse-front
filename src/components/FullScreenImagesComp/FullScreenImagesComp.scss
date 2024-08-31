@@ -1,0 +1,17 @@
+.comp-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  grid-gap: 10px; /* Отступы между элементами */
+  //padding: 10px 10px 90px 10px;
+  padding-bottom: 30px;
+  @media (max-width: 1070px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+.comp-image-gallery img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 2px;
+}

@@ -1,0 +1,158 @@
+//@import url('https://fonts.googleapis.com/css2?family=Montaga&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montaga&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  //font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --orange: #FF7521;
+  --light_orange: rgb(244, 147, 87);
+  --dark-orange: #9f5626;
+  --active: #DCD4FF;
+  --dark: rgba(0, 0, 0, 0.82);
+  --dark_text: #000000;
+  --dark_text_light: rgba(61, 61, 61, 0.7);
+  --bg: #1F1F1F;
+  --transit_text: #cacaca;
+  --transit: rgb(174, 174, 174);
+  --white: #FFFFFF;
+  --beruz: rgb(199, 18, 18);
+  --gradient_grey: linear-gradient(to bottom, #5E5A5A, #BEC7D7);
+  --gradient: linear-gradient(to bottom, #614AD3, #E42C64);
+  --gradient_body: linear-gradient(to right bottom, #DCFFC0, #C0FFFB);
+  --gradient_text: linear-gradient(45deg, #FFC1D4, #AB9AFF);
+}
+
+body {
+  //font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-repeat: no-repeat;
+  color: var(--dark_text);
+  background-color: rgb(255, 255, 255);
+  //background-size: cover;
+  //background-image: url("./assets/images/lighthouse-image15.jpg");
+ // height: 100vh;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+    body.lock {
+      overflow: hidden;
+    }
+  }
+
+[class*="__container"] {
+  max-width: 1400px;
+ // width: 100%;
+  padding: 0 15px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+main {
+  //display: grid;
+  //max-width: 1400px;
+  //display: flex;
+  //width: 100%;
+  //max-width: 1200px;
+  //flex-wrap: wrap;
+  //justify-content: space-between;
+  //padding: 0 15px;
+  //overflow: hidden;
+  //margin: 0 auto;
+}
+
+@media (min-width: 1920px) {
+  html {
+    zoom: 1.2;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    zoom: 1.5;
+  }
+}
+
+@media (min-width: 3860px) {
+  html {
+    zoom: 2.5;
+  }
+}
