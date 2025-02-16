@@ -1,35 +1,28 @@
-import * as React from 'react';
 import './CategoryList.scss';
-import {API_URL} from '../../constants.js';
-import {useEffect, useState} from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { loadProducts, setFilters } from '../../redux/products.js';
 
-function CategoryList() {
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(API_URL + 'categories');
-                const data = await response.json();
-                setCategories(data);
-            } catch (error) {
-                console.error('Ошибка при загрузке данных:', error);
-            }
-        };
-        fetchData();
-    }, []);
-
-    const filterCategories = categories.filter(category => category.ParentID === 0);
-
+const CategoryList = () => {
+    const dispatch = useDispatch();
+    const { status, filters, filterCategories } = useSelector((state) => state.products);
+    // Handle category change
+    const handleCategoryChange = (e) => {
+        dispatch(setFilters({ category: e.target.value }));
+        dispatch(loadProducts(e.target.value));  // Fetch products when category changes
+    };
+    // Show loading state or error message
+    if (status === 'loading') return <p>Loading...</p>;
+    if (status === 'failed') return <p>Error: { error }</p>;
     return (
         <>
             <div className="categories__container">
                 <div className="categories">
-                    {filterCategories.map(category => (
-                        <div className="category-button">
-                           <div className="category-title">{category.Name}</div>
-                        </div>
-                    ))}
+                    <select className="category-button" name="category" value={filters.category} onChange={handleCategoryChange}>
+                        <option value="all">All</option>
+                        {filterCategories?.map((category) => (
+                            <option className="category-title" key={category.Name} value={category.ID}>{category.Name}</option>
+                        ))}
+                    </select>
                 </div>
             </div>
         </>

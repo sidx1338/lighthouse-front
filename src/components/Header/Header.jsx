@@ -1,30 +1,35 @@
-import React, {useState, useEffect} from "react";
+import  { useState, useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import './Header.scss';
-import Instagram from "../../assets/icons/instagram.svg";
-import Vkontakte from "../../assets/icons/vkontakte.svg";
-import Logo from "../../assets/logo/logo-before.svg";
-import LogoAfter from "../../assets/logo/logo-after.svg";
-import CropLogoBefore from "../../assets/logo/logo-crop-before.svg";
-import CropLogoAfter from "../../assets/logo/logo-crop-after.svg";
-import Cart from "../../assets/icons/cart.svg";
-import PhoneBefore from "../../assets/icons/white-phone.svg";
-import PhoneAfter from "../../assets/icons/phone.svg";
-import {Link} from "react-router-dom";
-import Order from "../Order/Order.jsx";
+import Instagram from '../../assets/icons/instagram.svg';
+import Vkontakte from '../../assets/icons/vkontakte.svg';
+import Logo from '../../assets/logo/logo-before.svg';
+import LogoAfter from '../../assets/logo/logo-after.svg';
+import CropLogoBefore from '../../assets/logo/logo-crop-before.svg';
+import CropLogoAfter from '../../assets/logo/logo-crop-after.svg';
+import Cart from '../../assets/icons/cart.svg';
+import PhoneBefore from '../../assets/icons/white-phone.svg';
+import PhoneAfter from '../../assets/icons/phone.svg';
+import { Link } from 'react-router-dom';
+import Order from '../Order/Order.jsx';
+import ScrollToTop from '../../../ScrollToTop.js';
+import { NavMobile } from '../NavMobile/NavMobile.jsx';
+import {addToCart, removeFromCart} from '../../redux/cart.js';
 
+const showOrders = (products) => {
+    const dispatch = useDispatch();
+    const handleRemoveToCart = (productId) => {
+        dispatch(removeFromCart(productId));
+    };
 
-import ScrollToTop from "../../../ScrollToTop.js";
-import {NavMobile} from "../NavMobile/NavMobile.jsx";
-
-const showOrders = (props) => {
-    let summa = 0
-    props.orders.forEach(el => summa += Number.parseFloat(el.price))
+    let total = 0
+    products.forEach(el => total += Number.parseFloat(el.Price))
     return (
         <div>
-        {props.orders.map(el => (
-                <Order onDelete={props.onDelete} key={el.id} item={el}/>
+        {products.map(el => (
+                <Order onDelete={handleRemoveToCart} key={el.ID} item={el}/>
             ))}
-            <p className="summa">Сумма: <span>{new Intl.NumberFormat().format(summa)}₽</span></p>
+            <p className="summa">Сумма: <span>{new Intl.NumberFormat().format(total)}₽</span></p>
             <div className="order-button-wrap">
                 <button className="order-button">Оформить заказ</button>
             </div>
@@ -40,6 +45,8 @@ const showNothing = () => {
 }
 
 const Header = (props) => {
+    const cart = useSelector((state) => state.cart);
+
     let [cartOpen, setCartOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false);
     //const [fixed, setFixed] = useState(false);
@@ -107,7 +114,7 @@ const Header = (props) => {
                                 </div>
                                 <div className="header-nav">
                                     <Link to={`/lighthouse/products`} className={scrolled ? 'nav-item scrolled' : 'nav-item'}>Продукция</Link>
-                                    <Link to={`/lighthouse/aboutus`} className={scrolled ? 'nav-item scrolled' : 'nav-item'}>О нас</Link>
+                                    <Link to={`/lighthouse/about`} className={scrolled ? 'nav-item scrolled' : 'nav-item'}>О нас</Link>
                                     <Link to={`/lighthouse/contacts`} className={scrolled ? 'nav-item scrolled' : 'nav-item'}>Контакты</Link>
                                     <Link to={`/lighthouse/certificates`} className={scrolled ? 'nav-item scrolled' : 'nav-item'}>Сертификаты</Link>
                                 </div>
@@ -116,7 +123,7 @@ const Header = (props) => {
                                     <div onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`cart ${cartOpen && 'active'}`}>
                                            <div className="cart-and-count">
                                                 <img src={Cart} alt="cart"/>
-                                                <span className="item-count">0</span>
+                                                <span className="item-count">{cart.items?.length}</span>
                                            </div>
                                     </div>
                                     <div className="phone">
@@ -128,8 +135,8 @@ const Header = (props) => {
                                 </div>
                                 {cartOpen &&  (
                                     <div className="shop-cart">
-                                        {props.orders.length > 0 ?
-                                            showOrders(props) : showNothing() }
+                                        {cart.items?.length > 0 ?
+                                            showOrders(cart.items) : showNothing() }
                                     </div>
                                 )}
                         </div>

@@ -1,32 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
-    createBrowserRouter, createHashRouter, HashRouter, Route,
+    createHashRouter,
     RouterProvider,
-} from "react-router-dom";
+} from 'react-router-dom';
+import { Provider } from 'react-redux';
 import './index.scss'
-
-import {Contacts} from "./Pages/Contacts/Contacts.jsx";
-import App from "./App.jsx";
-import Products from "./Pages/Products/Products.jsx";
-import {CompInfo} from "./Pages/CompInfo/CompInfo";
-import Certificates from "./Pages/Сertificates/ Сertificates.jsx";
+import App from './App.jsx';
+import { store } from './redux/store';
+import { Contacts } from './Pages/Contacts/Contacts.jsx';
+import Products from './Pages/Products/Products.jsx';
+import { CompInfo } from './Pages/CompInfo/CompInfo';
+import Certificates from './Pages/Сertificates/Сertificates.jsx';
 
 const router = createHashRouter([
     {
-        path: "/",
+        path: '/',
         element: <App/>
     },
     {
-        path: "/lighthouse",
+        path: '/lighthouse',
         element: <App/>
     },
     {
-        path: "/lighthouse/products",
+        path: '/lighthouse/products',
         element: <Products/>
     },
     {
-        path: "/lighthouse/aboutus",
+        path: '/lighthouse/about',
         element: <CompInfo/>
     },
     {
@@ -41,7 +42,8 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <RouterProvider router={router}/>
+        <Provider store={store}>
+            <RouterProvider router={router}/>
+        </Provider>
     </React.StrictMode>,
 )
-
