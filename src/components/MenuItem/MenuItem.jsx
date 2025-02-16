@@ -55,7 +55,7 @@ export const MenuItem = () => {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 1 }}
             >
-                <Link to={`/lighthouse/aboutus`} className="menu-link">О нас</Link>
+                <Link to={`/lighthouse/about`} className="menu-link">О нас</Link>
             </motion.li>
             <motion.li
                 className="menu-item"

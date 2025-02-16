@@ -1,4 +1,3 @@
-import React from 'react';
 import './CategoryCard.scss'
 
 import image1 from '../../assets/category-images/chandelier.png'
@@ -22,11 +21,11 @@ const imageData = [
 ];
 
 const ImageGridComponent = () => (
-    <div className="image-grid__container">
+    <div className='image-grid__container'>
         {imageData.map((image, index) => (
             <div className="image-item" key={index}>
                 <img src={image.src} alt='image' className="image" />
-                <div className="image-title"><span>{image.title}</span></div>
+                <div className='image-title'><span>{image.title}</span></div>
             </div>
         ))}
     </div>

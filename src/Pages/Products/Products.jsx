@@ -1,29 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Products.scss';
-import Footer from "../../components/Footer/Footer.jsx";
-import Header from "../../components/Header/Header.jsx";
-import {API_URL} from "../../constants.js";
-import CategoryList from "../../components/CategoryList/CategoryList.jsx";
-import SortByPrice from "../../components/SortByPrice/SortByPrice";
+import Footer from '../../components/Footer/Footer.jsx';
+import Header from '../../components/Header/Header.jsx';
+import CategoryList from '../../components/CategoryList/CategoryList.jsx';
+import SortByPrice from '../../components/SortByPrice/SortByPrice';
+import { loadCategories, loadProducts } from '../../redux/products.js';
+import { addToCart } from '../../redux/cart.js';
 
-function Products() {
-    const [products, setProducts] = useState([]);
+const Products = () => {
+    const dispatch = useDispatch();
+    const { filteredProducts, filters, status, error }
+        = useSelector((state) => state.products);
 
+    // Fetch categories and products on component mount
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`${API_URL}products?page=1&perPage=30`);
-                const data = await response.json();
-                setProducts(data.data);
-            } catch (error) {
-                console.error('Ошибка при загрузке данных:', error);
-            }
-        };
-        fetchData();
-    }, []);
+        dispatch(loadCategories());
+        dispatch(loadProducts(filters.category));
+    }, [dispatch, filters.category]);
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+    };
+
+    // Show loading state or error message
+    if (status === 'loading') return <p>Loading...</p>;
+    if (status === 'failed') return <p>Error: {error}</p>;
 
     return (
-        <>
+        <div>
             <div className="products-top-background"/>
                 <Header/>
                 <div className="items--title">В РАЗРАБОТКЕ</div>
@@ -31,102 +36,22 @@ function Products() {
             <CategoryList/>
             <SortByPrice/>
                 <div className="items__container">
-                    {products.map(product => (
-                    <div className="item" key={product.ID}>
-                        <div className="item-availability">В наличии: 10</div>
-                        <img className="item-img" src={`https://lhouse.com.ru/${product.images[0].thumbs.Path}${product.images[0].thumbs.File}`} alt="" />
-                        <div className="item-title">{product.Name}</div>
-                        <div className="item-price">{product.Price}₽</div>
-                    </div>
-                    ))}
+                    {filteredProducts?.map(product => {
+                        return (<div className="item" key={product.ID}>
+                            <div className="item-availability"></div>
+                            <img className="item-img" src={
+                                `${import.meta.env.VITE_IMAGE_URL}/${product.images[0]?.thumbs?.Path}/${product.images[0]?.thumbs?.File}`
+                            } alt="" />
+                            <div className="item-title">{product.Name}</div>
+                            <div className="item-price">{product.Price}₽</div>
+                            <button onClick={() => handleAddToCart(product)}>Добавить в корзину</button>
+                        </div>)
+                    })}
                 </div>
             </div>
             <Footer/>
-        </>
+        </div>
     );
 }
 
 export default Products;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, {useEffect, useState} from 'react';
-// import axios from 'axios';
-// import Header from "../../components/Header/Header.jsx";
-// import Footer from "../../components/Footer/Footer.jsx";
-// import Items from "../../components/Items/Items.jsx";
-// import './Products.scss'
-//
-// const [products, setProducts] = useState([]);
-//
-// useEffect(() => {
-//     const fetchData = async () => {
-//         try {
-//             const response = await fetch('http://localhost:3000/api/products?page=5&perPage=10');
-//             const data = await response.json();
-//             setProducts(data.data);
-//         } catch (error) {
-//             console.error('Ошибка при загрузке данных:', error);
-//         }
-//     };
-//
-//     fetchData();
-// }, []); //  <--  Удалили массив зависимостей
-// const [showButton, setShowButton] = useState(false);
-//
-// class Products extends React.Component {
-//
-//
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             orders: [],
-//             products:[],
-//         }
-//         this.addToOrder = this.addToOrder.bind(this)
-//         this.deleteOrder = this.deleteOrder.bind(this)
-//     }
-//     render() {
-//         return (
-//             <div className="products">
-//                 <Header orders={this.state.orders} onDelete={this.deleteOrder}/>
-//                 <div className="products-items">
-//                     <Items items={this.state.products} onAdd={this.addToOrder}/>
-//                 </div>
-//                 <Footer/>
-//             </div>
-//         )
-//     }
-//
-//     deleteOrder(id) {
-//         this.setState({orders: this.state.orders.filter(el => el.id !== id)})
-//     }
-//
-//     addToOrder(item) {
-//         let isInArray = false
-//         this.state.orders.forEach(el => {
-//             if(el.id === item.id)
-//                 isInArray = true
-//         })
-//         if (!isInArray)
-//         this.setState({orders: [...this.state.orders, item]})
-//     }
-// }
-//
-// export default Products;

@@ -78,7 +78,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li className="footer__menu-item">
-                                <Link to={`/lighthouse/aboutus`} className="footer__nav-link">
+                                <Link to={`/lighthouse/about`} className="footer__nav-link">
                                     О нас
                                 </Link>
                             </li>

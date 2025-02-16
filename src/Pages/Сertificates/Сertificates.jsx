@@ -1,6 +1,5 @@
-import React from "react";
 import './Certificates.scss';
-import FullScreenImages from "../../components/FullScreenImages/FullScreenImages.jsx";
+import FullScreenImages from '../../components/FullScreenImages/FullScreenImages.jsx';
 
 import image1 from '../../assets/certificates/01.jpg'
 import image2 from '../../assets/certificates/02.jpg'
@@ -32,9 +31,9 @@ import image27 from '../../assets/certificates/27.jpg'
 import image28 from '../../assets/certificates/28.jpg'
 import image29 from '../../assets/certificates/29.jpg'
 import image30 from '../../assets/certificates/30.jpeg'
-//import image31 from '../../assets/certificates/31.jpeg'
-import Footer from "../../components/Footer/Footer.jsx";
-import Header from "../../components/Header/Header.jsx";
+
+import Footer from '../../components/Footer/Footer.jsx';
+import Header from '../../components/Header/Header.jsx';
 
 
 

@@ -8,7 +8,7 @@ import image5 from '../../assets/images/lighthouse-image6.jpg'
 import image6 from '../../assets/images/lighthouse-image7.jpg'
 import image7 from '../../assets/images/lighthouse-image8.jpg'
 import image8 from '../../assets/images/lighthouse-image9.jpg'
-import FullScreenImagesComp from "../FullScreenImagesComp/FullScreenImagesComp.jsx";
+import FullScreenImagesComp from '../FullScreenImagesComp/FullScreenImagesComp.jsx';
 
 const imageData = [
     image1,

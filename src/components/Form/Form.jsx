@@ -1,9 +1,6 @@
-import React from "react";
 import './Form.scss'
 
-const TELEGRAM_BOT_TOKEN = '6799304241:AAEyvUaR011p6gMp_ByEOvatUMrQEGYxBmk';
-const TELEGRAM_CHAT_ID = '@skSterh';
-const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`
+const API = `https://api.telegram.org/bot${import.meta.VITE_TELEGRAM_BOT_TOKEN}/sendMessage`
 
 async function sendEmailTelegram(event) {
     event.preventDefault()
@@ -25,7 +22,7 @@ async function sendEmailTelegram(event) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                chat_id: TELEGRAM_CHAT_ID,
+                chat_id: import.meta.VITE_TELEGRAM_CHAT_ID,
                 text: message,
             })
         });
@@ -78,4 +75,4 @@ const Form = () => {
     )
 }
 
-export {Form}
+export { Form }
